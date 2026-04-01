@@ -12,6 +12,12 @@ provider "render" {
   owner_id = var.render_owner_id
 }
 
+env_vars = {
+  ENV = {
+    value = "production"
+  }
+}
+
 variable "github_actor" {
   description = "GitHub username"
   type        = string
