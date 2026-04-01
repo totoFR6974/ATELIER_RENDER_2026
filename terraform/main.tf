@@ -17,7 +17,6 @@ variable "github_actor" {
   type        = string
 }
 
-#Flask
 resource "render_web_service" "flask_app" {
   name   = "flask-render-iac-${var.github_actor}"
   plan   = "free"
@@ -31,29 +30,12 @@ resource "render_web_service" "flask_app" {
   }
 
   env_vars = {
-    "DATABASE_URL" = {
+    "ENV" = {
+      value = "production"
+    },
+
+     "DATABASE_URL" = {
       value = "postgresql://bdd_atelier_render_user:CZxmfSIZSgVI5M3qE7jnGD5nKCj1aWdg@dpg-d76hk7vfte5s73ek3vfg-a/bdd_atelier_render"
-    }
-  }
-}
-
-
-# ADMINER
-
-resource "render_web_service" "adminer" {
-  name   = "adminer-db-${var.github_actor}"
-  plan   = "free"
-  region = "frankfurt"
-
-  runtime_source = {
-    image = {
-      image_url = "adminer:latest"
-    }
-  }
-
-  env_vars = {
-    "ADMINER_DEFAULT_SERVER" = {
-      value = "dpg-d76hk7vfte5s73ek3vfg-a" 
     }
   }
 }
