@@ -48,9 +48,11 @@ resource "render_web_service" "adminer" {
   plan   = "free"
   region = "frankfurt"
 
+ 
   runtime_source = {
     image = {
-      image_url = "adminer:latest"
+      image_url = "adminer"
+      tag       = "latest"
     }
   }
 
