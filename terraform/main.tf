@@ -37,9 +37,9 @@ resource "render_web_service" "flask_app" {
   }
 }
 
-# ---------------------------------------------------
-# 2. TON OUTIL ADMINER (Nouveau bloc à ajouter !)
-# ---------------------------------------------------
+
+# ADMINER
+
 resource "render_web_service" "adminer" {
   name   = "adminer-db-${var.github_actor}"
   plan   = "free"
