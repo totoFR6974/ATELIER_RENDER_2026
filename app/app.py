@@ -1,7 +1,9 @@
 from flask import Flask
+from flask_cors import CORS 
 import os
 
 app = Flask(__name__)
+CORS(app)  
 
 @app.route("/")
 def home():
@@ -23,6 +25,10 @@ def info():
 def env():
     return {"env": os.getenv("ENV")}
 
+
+@app.route("/api/test")
+def api_test():
+    return {"message": "Succès ! Le Backend Flask est bien connecté au Frontend React 🎉"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
