@@ -36,8 +36,3 @@ env_vars = {
 }
 }
 
-env_vars = {
-  ENV = {
-    value = "production"
-  }
-}
