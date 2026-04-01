@@ -33,14 +33,15 @@ resource "render_web_service" "flask_app" {
     "ENV" = {
       value = "production"
     },
-
      "DATABASE_URL" = {
       value = "postgresql://bdd_atelier_render_user:CZxmfSIZSgVI5M3qE7jnGD5nKCj1aWdg@dpg-d76hk7vfte5s73ek3vfg-a/bdd_atelier_render"
     }
   }
+} 
 
 
-#ADMINER
+
+# ADMINER
 
 resource "render_web_service" "adminer" {
   name   = "adminer-db-${var.github_actor}"
@@ -58,5 +59,4 @@ resource "render_web_service" "adminer" {
       value = "dpg-d76hk7vfte5s73ek3vfg-a" 
     }
   }
-}
 }
